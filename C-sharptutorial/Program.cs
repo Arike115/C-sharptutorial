@@ -1,86 +1,136 @@
 ﻿//mainMethod
 using C_sharptutorial;
 using System.Net.Security;
+using System.Reflection.Emit;
 
 internal class Program
 {
-    //Comments
-    //Variables
-    //datatypes
-    //constants 
-    //converion method
-    // single line comments
-    /* multi-line comments*/
-
-    //this is a main method which is called an entry point
+   //operators
+   //arithmetic operator
+   //assignment operator
+   //logical operator &&, ||, !
+   //comparison operator ==, !=,>, <,>=,<=
+   //Statement
+   //conditional statement : if&else-statement, switchcase
+   //looping
+   //while
+   //dowhile
+   //for
+   //foreach
     private static void Main(string[] args)
     {
-        //datatypes
-        //integer int
-        //string
-        //float
-        //boolean bool
-        //decimal
-        //double
-        //long
-        //byte
-        //int v = 568988977;
-        //int number = 76;
-        //Console.WriteLine(v);
-        //Console.WriteLine(number);
-
-        //string FirstName = "Precious";
-        //string LastName = "Alape";
-        //Console.WriteLine("My Name is "+ FirstName +" "+ LastName);
-
-        //float x = 43634543;
-        //bool y = false;
-        //decimal values = 899.7875m;
-        //double numerical = 786857875444.7865;
-        //DateTime dateonly = DateTime.Now;
-        //Console.WriteLine(dateonly);
-
-        //const int data = 5463;
-       
-        //Console.WriteLine(data);
-        WelcomeMemo();
-        Arithmetic();
+        //assignmnet opertors =,+=,-=,*=,/=,%=,&=
+        int y = 25;
+        y += 23;
+        y -= 10;
+        y *= 10;
+        y /= 2;
+        Console.WriteLine(y);
+        //ConditionalStatement();
+        // CombinedMethod();
+        //CombinedMethod2();
+        SwitchCaseMethod();
     }
-    static void WelcomeMemo()
+
+    static void ConditionalStatement()
     {
-        //Conversion
-        //implicitcasting
-        //explicitcasting
+        int x = 654; int b = 90;
+        int v = 654; int c = 76;
 
-        //implicit -casting
-        int data1 = 78;
-        double data2 = data1;
-        Console.WriteLine(data2);
+        if(x == v)
+        {
+            Console.WriteLine("the result is correct");
+        }
+        else 
+        { 
+            Console.WriteLine("the result is not correct");
+        }
 
-        //explicit-casting
-        double v = 456.22;
-        int v2 = (int)v;
-        Console.WriteLine(v2);
-
+        if (b <= 100)
+        {
+            Console.WriteLine("b is greater");
+        }
+        else
+        {
+            Console.WriteLine("the value is greater");
+        }
     }
 
-    static void Arithmetic()
+    static void CombinedMethod()
     {
-        //arithmetic operators
-        //+,-,*,/,%,++,--
+        Console.WriteLine("Hello what would you like you like to get");
+        Console.WriteLine("select 1. for coffee, 2. for bread, 3 for tea");
+        int result = int.Parse(Console.ReadLine());
 
-        int v = 45;
-        int x = 78;
-        int d = v + x;
-        int dt = v * x;
-        int dx = v - x;
-        int dy = v / x;
-        Console.WriteLine("Addition =" + d);
-        Console.WriteLine("Subtraction =" + dx);
-        Console.WriteLine("multiplication =" + dt);
-        Console.WriteLine("division =" + dy);
+        int x = 1;
+        int b = 2;
+        int v = 3;
 
-        //assignment
-        //=, +=,-=,*=,/=,!=, >>=,<<+,
+        if(result ==  x || result == b || result == v)
+        {
+            Console.WriteLine("Thank you for your patronage");
+        }
+        else
+        {
+            Console.WriteLine("please select the right value");
+        }
     }
+
+    static void CombinedMethod2()
+    {
+        Console.WriteLine("Hello what would you like you like to get");
+        Console.WriteLine("select 2. for bread");
+        int result = int.Parse(Console.ReadLine());
+        Console.WriteLine("Please input your 3 for your budget price");
+        int result2 = int.Parse(Console.ReadLine());
+
+        
+        int b = 2;
+        int v = 3;
+
+        if (result == b && result2 == v)
+        {
+            Console.WriteLine("Thank you for your patronage");
+        }
+        else
+        {
+            Console.WriteLine("please select the right value");
+        }
+    }
+
+    static void SwitchCaseMethod()
+    {
+        Start:
+        Console.WriteLine("Please select days of the week in Numerical Format");
+        int result = int.Parse(Console.ReadLine());
+        switch(result)
+        {
+            case 1:
+                Console.WriteLine("Monday");
+                break;
+            case 2:
+                Console.WriteLine("Tuesday");
+                break;
+            case 3:
+                Console.WriteLine("Wednesday");
+                break;
+            case 4:
+                Console.WriteLine("Thursday");
+                break;
+            case 5:
+                Console.WriteLine("Friday");
+                break;
+            case 6:
+                Console.WriteLine("Saturday");
+                break;
+            case 7:
+                Console.WriteLine("Sunday");
+                break;
+                default:
+                Console.WriteLine("Value does not Exist");
+                goto Start;
+        }
+    }
+
+
 }
