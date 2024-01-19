@@ -5,12 +5,6 @@ using System.Reflection.Emit;
 
 internal class Program
 {
-   //operators
-   //arithmetic operator
-   //assignment operator
-   //logical operator &&, ||, !
-   //comparison operator ==, !=,>, <,>=,<=
-   //Statement
    //conditional statement : if&else-statement, switchcase
    //looping
    //while
@@ -19,118 +13,46 @@ internal class Program
    //foreach
     private static void Main(string[] args)
     {
-        //assignmnet opertors =,+=,-=,*=,/=,%=,&=
-        int y = 25;
-        y += 23;
-        y -= 10;
-        y *= 10;
-        y /= 2;
-        Console.WriteLine(y);
-        //ConditionalStatement();
-        // CombinedMethod();
-        //CombinedMethod2();
-        SwitchCaseMethod();
-    }
+        ////Foreachloop
+        //int v = 56;
+        //Console.WriteLine(v);
 
-    static void ConditionalStatement()
-    {
-        int x = 654; int b = 90;
-        int v = 654; int c = 76;
+        ////array
+        //int[] numbers = { 1, 2, 3,89,94,84,90,57,34,3,4,0,1,1,1};
+        //foreach(int i in numbers)
+        //{
+        //    Console.WriteLine(i);
+        //}
 
-        if(x == v)
+
+        //Forloop
+        for(int i = 0; i <= 10; i++)
         {
-            Console.WriteLine("the result is correct");
-        }
-        else 
-        { 
-            Console.WriteLine("the result is not correct");
+            Console.WriteLine(i);
         }
 
-        if (b <= 100)
+        //do while
+
+        int y = 0;
+        do
         {
-            Console.WriteLine("b is greater");
+            Console.WriteLine("dowhile result is" +' '+ y);
+            y++;
         }
-        else
+        while (y < 20);
+
+        //while
+
+        int x = 0;
+        while (x < 20)
         {
-            Console.WriteLine("the value is greater");
+            Console.WriteLine("while result is" + ' ' + x);
+            x++;
         }
-    }
-
-    static void CombinedMethod()
-    {
-        Console.WriteLine("Hello what would you like you like to get");
-        Console.WriteLine("select 1. for coffee, 2. for bread, 3 for tea");
-        int result = int.Parse(Console.ReadLine());
-
-        int x = 1;
-        int b = 2;
-        int v = 3;
-
-        if(result ==  x || result == b || result == v)
-        {
-            Console.WriteLine("Thank you for your patronage");
-        }
-        else
-        {
-            Console.WriteLine("please select the right value");
-        }
-    }
-
-    static void CombinedMethod2()
-    {
-        Console.WriteLine("Hello what would you like you like to get");
-        Console.WriteLine("select 2. for bread");
-        int result = int.Parse(Console.ReadLine());
-        Console.WriteLine("Please input your 3 for your budget price");
-        int result2 = int.Parse(Console.ReadLine());
-
         
-        int b = 2;
-        int v = 3;
-
-        if (result == b && result2 == v)
-        {
-            Console.WriteLine("Thank you for your patronage");
-        }
-        else
-        {
-            Console.WriteLine("please select the right value");
-        }
     }
 
-    static void SwitchCaseMethod()
-    {
-        Start:
-        Console.WriteLine("Please select days of the week in Numerical Format");
-        int result = int.Parse(Console.ReadLine());
-        switch(result)
-        {
-            case 1:
-                Console.WriteLine("Monday");
-                break;
-            case 2:
-                Console.WriteLine("Tuesday");
-                break;
-            case 3:
-                Console.WriteLine("Wednesday");
-                break;
-            case 4:
-                Console.WriteLine("Thursday");
-                break;
-            case 5:
-                Console.WriteLine("Friday");
-                break;
-            case 6:
-                Console.WriteLine("Saturday");
-                break;
-            case 7:
-                Console.WriteLine("Sunday");
-                break;
-                default:
-                Console.WriteLine("Value does not Exist");
-                goto Start;
-        }
-    }
+
 
 
 }
