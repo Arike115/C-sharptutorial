@@ -1,5 +1,4 @@
 ﻿//mainMethod
-using C_sharptutorial;
 using System.Net.Security;
 using System.Reflection.Emit;
 
@@ -7,16 +6,23 @@ internal class Program
 {
     private static void Main(string[] args) //method
     {
-        User.UserInfo();
-        User.Age = 88;
-       
-        Student.StudentInfo();
+        //escape sequence
+        //\'
+        //\"
+        //\
+        //\n
+        //\r
+        //\t
+        //\0
+        //\b
 
-        //instatiation
+        string sample = "Hello\nVictor";
+        string sample2 = "c:\\codebuns\\file.cs";
+        string sample3 = "i am a \"junior developer\".";
+        Console.WriteLine(sample);
+        Console.WriteLine(sample2);
+        Console.WriteLine(sample3);
 
-        Student stud = new Student(101,"Grace",22,"Chemistry");
-        stud.StudentDetails();
-        
     }
 
 }
