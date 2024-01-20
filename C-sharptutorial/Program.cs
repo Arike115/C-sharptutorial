@@ -5,54 +5,18 @@ using System.Reflection.Emit;
 
 internal class Program
 {
-   //conditional statement : if&else-statement, switchcase
-   //looping
-   //while
-   //dowhile
-   //for
-   //foreach
-    private static void Main(string[] args)
+    private static void Main(string[] args) //method
     {
-        ////Foreachloop
-        //int v = 56;
-        //Console.WriteLine(v);
+        User.UserInfo();
+        User.Age = 88;
+       
+        Student.StudentInfo();
 
-        ////array
-        //int[] numbers = { 1, 2, 3,89,94,84,90,57,34,3,4,0,1,1,1};
-        //foreach(int i in numbers)
-        //{
-        //    Console.WriteLine(i);
-        //}
+        //instatiation
 
-
-        //Forloop
-        for(int i = 0; i <= 10; i++)
-        {
-            Console.WriteLine(i);
-        }
-
-        //do while
-
-        int y = 0;
-        do
-        {
-            Console.WriteLine("dowhile result is" +' '+ y);
-            y++;
-        }
-        while (y < 20);
-
-        //while
-
-        int x = 0;
-        while (x < 20)
-        {
-            Console.WriteLine("while result is" + ' ' + x);
-            x++;
-        }
+        Student stud = new Student(101,"Grace",22,"Chemistry");
+        stud.StudentDetails();
         
     }
-
-
-
 
 }
