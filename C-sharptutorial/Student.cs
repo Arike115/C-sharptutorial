@@ -6,27 +6,32 @@ using System.Threading.Tasks;
 
 namespace C_sharptutorial
 {            //derived class
-   public class Student : User,IUser
+   public class Student 
     {
-        
-       public static void StudentGrade()
+       public static void userinfo()
         {
-            Console.WriteLine("my current grade is 2.1");
+            Console.WriteLine("this method returns nothing");
         }
 
-        public static void StudentAge()
+        public static int Calculator()
         {
-            Console.WriteLine("I'm 20 Years Old");
+            int v = 56; 
+           int x = 78;
+          var result = v * x;
+            return result;
         }
 
-        public void UserFullName()
+        public static void Calculator2(int value1, int value2)
         {
-            throw new NotImplementedException();
+            var result = value1 + value2;
+            Console.WriteLine(result);
         }
 
-        public void UserAddress()
+        public static int[] Calculator3(int value1, int value2, int value3)
         {
-            throw new NotImplementedException();
+            var result = value1 + value2 * value3;
+            var data = value1 + value2 + value3;
+            return new []{data,data };
         }
     }
 }
