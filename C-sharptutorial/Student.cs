@@ -5,12 +5,36 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace C_sharptutorial
-{            //derived class
-   public class Student 
+{
+    public enum DaysOfTheWeek
+    { 
+        Monday,
+        Tuesday,
+        Wednesday,
+        Friday,
+        Saturday,
+        Sunday
+    }
+
+    public enum Gender
     {
+        Male,
+        Female,
+        unknown,
+        Other
+    }
+
+
+
+    public class Student 
+    {
+
+        public int Id { get; set; }
+       
        public static void userinfo()
         {
             Console.WriteLine("this method returns nothing");
+            Console.WriteLine(Gender.Male);
         }
 
         public static int Calculator()
@@ -34,4 +58,14 @@ namespace C_sharptutorial
             return new []{data,data };
         }
     }
+
+    public class User 
+    {
+        public void MyMethod()
+        {
+
+        }
+
+    }
+
 }
