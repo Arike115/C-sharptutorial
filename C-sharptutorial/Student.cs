@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C_sharptutorial
 {            //derived class
-   public class Student : User
+   public class Student : User,IUser
     {
         
        public static void StudentGrade()
@@ -19,6 +19,14 @@ namespace C_sharptutorial
             Console.WriteLine("I'm 20 Years Old");
         }
 
+        public void UserFullName()
+        {
+            throw new NotImplementedException();
+        }
 
+        public void UserAddress()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

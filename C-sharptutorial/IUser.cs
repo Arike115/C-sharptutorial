@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C_sharptutorial
 {
-    internal class User
+    internal interface IUser
     {
     }
 }
