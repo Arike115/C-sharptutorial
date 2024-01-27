@@ -5,39 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace C_sharptutorial
-{
-    //access-modifiers
-    //public 
-    //private
-    //internal
-    //protected
-    //static and nonstatic
-    //Nonstatic
-   public class Student
+{            //derived class
+   public class Student : User
     {
         
-        public int Id = 0;
-        public String Name = "";
-        public int Age = 0;
-        public String Department = "";
-
-        public Student(int id, string name, int age, string dept)
+       public static void StudentGrade()
         {
-            Id = id;
-            Name = name;
-            Age = age;
-            Department = dept;
-
+            Console.WriteLine("my current grade is 2.1");
         }
 
-        public void StudentDetails()
+        public static void StudentAge()
         {
-            Console.WriteLine("Her name is {0} From {1} Class,i'm {2} ", Name, Department, Age);
-        }
-
-        public static void StudentInfo()
-        {
-            Console.WriteLine("His name is Ben From Math Class");
+            Console.WriteLine("I'm 20 Years Old");
         }
 
 

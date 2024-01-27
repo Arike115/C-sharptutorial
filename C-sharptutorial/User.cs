@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace C_sharptutorial
 {
-    //static
-    public static class User
+    public class User
     {
-        public static int v = 56;
-        public static decimal Age { get; set; }
-
-        public static void UserInfo()
+        public static void UserFullName()
         {
-            Console.WriteLine("this user is blessed");
+            Console.WriteLine("My Name is Grace Apoh");
+        }
+
+        public static void UserAddress()
+        {
+            Console.WriteLine("I stay Block 3 Allen Avenue");
         }
     }
 }
