@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C_sharptutorial
 {
-    internal interface ICircle
+    public interface ICircle
     {
     }
 }

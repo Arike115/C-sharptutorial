@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace C_sharptutorial
 {
-    internal interface IUser
+    public interface IUser:ICircle
     {
-    }
-}
+        void UserFullName();
+        void UserAddress();
+       
+}   }
