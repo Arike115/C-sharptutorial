@@ -7,12 +7,8 @@ internal class Program
 {
     private static void Main(string[] args) //method
     {
-
-        Student.userinfo();
-       var result = Student.Calculator();
-        Student.Calculator2(result, 78);
-        Student.Calculator3(78,90,87);
-        
+        Student<int>.Calculator2(78,89);
+        Student<string>.Calculator2("Hello", "Welcome");
         
     }
 

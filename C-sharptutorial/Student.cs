@@ -6,49 +6,20 @@ using System.Threading.Tasks;
 
 namespace C_sharptutorial
 {
-    public enum DaysOfTheWeek
-    { 
-        Monday,
-        Tuesday,
-        Wednesday,
-        Friday,
-        Saturday,
-        Sunday
-    }
 
-    public enum Gender
-    {
-        Male,
-        Female,
-        unknown,
-        Other
-    }
-
-
-
-    public class Student 
+    public class Student<T> 
     {
 
         public int Id { get; set; }
-       
-       public static void userinfo()
+
+        public static void Calculator2(T value1, T value2)
         {
-            Console.WriteLine("this method returns nothing");
-            Console.WriteLine(Gender.Male);
+            Console.WriteLine("Value 1 = {0} and and Value2 = {1}", value1, value2);
         }
 
-        public static int Calculator()
+        public static void PrintData(T value1, T value2, T Value3)
         {
-            int v = 56; 
-           int x = 78;
-          var result = v * x;
-            return result;
-        }
 
-        public static void Calculator2(int value1, int value2)
-        {
-            var result = value1 + value2;
-            Console.WriteLine(result);
         }
 
         public static int[] Calculator3(int value1, int value2, int value3)
@@ -59,13 +30,5 @@ namespace C_sharptutorial
         }
     }
 
-    public class User 
-    {
-        public void MyMethod()
-        {
-
-        }
-
-    }
-
+   
 }
