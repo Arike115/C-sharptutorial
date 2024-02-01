@@ -6,28 +6,33 @@ using System.Threading.Tasks;
 
 namespace C_sharptutorial
 {
+    public delegate bool Ispromotable(Student student); //delegate
 
-    public class Student<T> 
+    public enum Gender 
+    { 
+        Male,
+        Female,
+        Unknown
+    }
+    public class Student
     {
-
         public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Class { get; set; }
+        public Gender Gender { get;set; } 
 
-        public static void Calculator2(T value1, T value2)
+        public static void PromoteStudent(List<Student> students, Ispromotable isactive)
         {
-            Console.WriteLine("Value 1 = {0} and and Value2 = {1}", value1, value2);
+            foreach (var student in students)
+            {
+                if(isactive(student))
+                {
+                    Console.WriteLine(student.Name + " "+ "Promoted");
+                }
+            }
         }
-
-        public static void PrintData(T value1, T value2, T Value3)
-        {
-
-        }
-
-        public static int[] Calculator3(int value1, int value2, int value3)
-        {
-            var result = value1 + value2 * value3;
-            var data = value1 + value2 + value3;
-            return new []{data,data };
-        }
+      
     }
 
    
