@@ -20,39 +20,34 @@ internal class Program
         studentlist.Add(new Student() { Id = 010, Name = "Lilian", Age = 16, Gender = Gender.Female, Class = "jss3" });
         studentlist.Add(new Student() { Id = 011, Name = "Femi", Age = 12, Gender = Gender.Male, Class = "jss1" });
 
-        Ispromotable promoteresult = new Ispromotable(promote);
+        var result = studentlist.Select(em => em.Name).ToList();
+        foreach (var student in result)
+        {
+            Console.WriteLine(student);
+        }
 
-        Ispromotable promotedata = new Ispromotable(Promotewithage);
+        var data = studentlist.Sum(x => x.Id * x.Age);
+        Console.WriteLine(data);
 
 
-        Student.PromoteStudent(studentlist, promotedata);
-        Console.WriteLine("result ..................");
-        Student.PromoteStudent(studentlist, promoteresult);
+        //LambdaMethod();
+
     }
 
-    public static bool promote(Student student)
+
+    public static void LambdaMethod()
     {
-        if(student.Gender == Gender.Female)
+        List<int> numericalValues = new List<int>() { 34,5,6,89,90,75,7,8,9,0,8,12,14,24};
+        var evenNumber = numericalValues.FindAll(x => (x%2)==0); 
+
+        foreach ( var x in evenNumber )
         {
-            return true;
+            Console.WriteLine(x);
         }
-        else
-        {
-            return false;
-        }
+        Console.Read();
     }
 
-    public static bool Promotewithage (Student student)
-    {
-        if (student.Age >= 16)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+   
 
 
 

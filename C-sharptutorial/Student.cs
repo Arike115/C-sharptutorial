@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C_sharptutorial
 {
-    public delegate bool Ispromotable(Student student); //delegate
+    
 
     public enum Gender 
     { 
@@ -22,16 +22,6 @@ namespace C_sharptutorial
         public string Class { get; set; }
         public Gender Gender { get;set; } 
 
-        public static void PromoteStudent(List<Student> students, Ispromotable isactive)
-        {
-            foreach (var student in students)
-            {
-                if(isactive(student))
-                {
-                    Console.WriteLine(student.Name + " "+ "Promoted");
-                }
-            }
-        }
       
     }
 
