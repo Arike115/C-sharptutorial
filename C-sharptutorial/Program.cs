@@ -24,15 +24,29 @@ internal class Program
         {
             Console.WriteLine(student.Id + " " + student.Name + " " + student.Age);
         }
+
+        Student.Result();
+        Student.Result2();
       
     }
 }
 
 
 public class Student
-{ 
-    public int StudentId { get; set; } 
+{
+    public int StudentId { get; set; }
     public string StdentName { get; set; }
     public int Age { get; set; }
+
+    [Obsolete("this method is an old method, please you can try out our new method , the name is result 2")]
+    public static void Result ()
+    {
+        Console.WriteLine("Welcome to dotnet");
+    }
+
+    public static void Result2()
+    {
+        Console.WriteLine("Welcome to dotnet Core");
+    }
 
 }
