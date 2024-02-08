@@ -2,6 +2,16 @@
 using System.Net.Security;
 using System.Reflection.Emit;
 
+
+//xml documentation
+//preprocessor directives
+//abstraction
+//encapsulation
+//Ilist and icollection
+
+/// <summary>
+/// this class is called program.cs and it is very important in a project
+/// </summary>
 internal class Program
 {
     private static void Main(string[] args) //method
@@ -31,14 +41,19 @@ internal class Program
     }
 }
 
-
+    /// <summary>
+    /// this calls list information about student module
+    /// </summary>
 public class Student
 {
+    #region this student module start end here
     public int StudentId { get; set; }
     public string StdentName { get; set; }
     public int Age { get; set; }
 
-    [Obsolete("this method is an old method, please you can try out our new method , the name is result 2")]
+      /// <summary>
+      /// this method returns void and only welcome new users
+      /// </summary>
     public static void Result ()
     {
         Console.WriteLine("Welcome to dotnet");
@@ -48,5 +63,19 @@ public class Student
     {
         Console.WriteLine("Welcome to dotnet Core");
     }
+    #endregion
+    /// <summary>
+    /// this method calculate interger values
+    /// </summary>
+    /// <param name="value1"></param>
+    /// <param name="value2"></param>
+    /// <returns>int</returns>
+    public static int calculate (int value1, int value2)
+    {
+        var result = value1 + value2;
+        return result;
+    }
+
+    
 
 }
