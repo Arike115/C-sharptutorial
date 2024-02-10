@@ -37,6 +37,5 @@ internal class Program
             Console.WriteLine( "Name = {0}, Price = {1}, Model = {2}", car.Name, car.Price, car.Model );
 
         }
-
     }
 }
