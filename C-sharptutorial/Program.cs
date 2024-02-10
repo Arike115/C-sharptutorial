@@ -13,64 +13,30 @@ internal class Program
     private static void Main(string[] args) //method
     {
 
-     //   //list 
-     //List<int> numbers = new List<int>();
-     //   numbers.Add(17);
-     //   numbers.Add(56);
-     //   numbers.Add(90);
-     //   numbers.Add(78);
-     //   numbers.Add(11);
-     //   numbers.Add(88);
-     //   numbers.Add(22);
-     //   numbers.Add(12);
-     //   numbers.Add(21);
-
-     //   foreach (int i in numbers)
-     //   {
-     //       Console.WriteLine(i);
-     //   }
-
-     //   //Queue(First In First Out)
-     //   Queue<string> Words = new Queue<string>();
-
-     //   Words.Enqueue("Chalk");
-     //   Words.Enqueue("Board");
-     //   Words.Enqueue("Purse");
-     //   Words.Enqueue("Bag");
-     //   Words.Enqueue("Nylon");
-     //   Words.Enqueue("Mirror");
-
-     //   var data = Words.Dequeue();
-     //   Console.WriteLine(data);
-
-     //   Console.WriteLine("Total elements: {0}", Words.Count());
-
-     //   if(Words.Count > 0)
-     //   {
-     //       Console.WriteLine(Words.Peek());
-     //   }
-     //   Console.WriteLine("Total elements: {0}", Words.Count());
-     //   var datas = Words.Dequeue();
-     //   Console.WriteLine(datas);
-     //   Console.WriteLine("Total elements: {0}", Words.Count());
+      //List<CarModule> carlist = new List<CarModule>();
+        CarModule carList1 = new CarModule() {CarId = 201, Name = "Honda", Price = 2000000, Model = 2002 } ;
+        CarModule carList2 = new CarModule() { CarId = 202, Name = "SUV", Price = 3000000, Model = 2005 };
+        CarModule carList3 = new CarModule() { CarId = 203, Name = "Camry", Price = 4500000, Model = 2012 };
+        CarModule carList4 = new CarModule() { CarId = 204, Name = "Peugot", Price = 1500000, Model = 2022 };
+        CarModule carList5 = new CarModule() { CarId = 205, Name = "Bugatti", Price = 2000000, Model = 1890 };
+        CarModule carList6 = new CarModule() { CarId = 206, Name = "Ferrari", Price = 2500000, Model = 1999 };
 
 
-        //Stack(Last In First Out)
-        Stack<int> stacklist = new Stack<int>();
-        stacklist.Push(89);
-        stacklist.Push(9);
-        stacklist.Push(80);
-        stacklist.Push(92);
-        stacklist.Push(22);
-        stacklist.Push(30);
+        Dictionary<int, CarModule> cardictionary = new Dictionary<int, CarModule>();
+        cardictionary.Add(carList1.CarId, carList1);
+        cardictionary.Add(carList2.CarId, carList2);
+        cardictionary.Add(carList3.CarId, carList3);
+        cardictionary.Add(carList4.CarId, carList4);
+        cardictionary.Add(carList5.CarId, carList5);
+        cardictionary.Add(carList6.CarId, carList6);
 
-        Console.WriteLine("Numbers of element in stack :{0}", stacklist.Count());
-
-        while(stacklist.Count > 0)
+        foreach (var item in cardictionary)
         {
-            Console.Write(stacklist.Pop() + " ,");
+            Console.WriteLine("Key" + "  "+ item.Key);
+            var car = item.Value;
+            Console.WriteLine( "Name = {0}, Price = {1}, Model = {2}", car.Name, car.Price, car.Model );
+
         }
-        Console.Write("Numbers of element in stack :{0}", stacklist.Count());
 
     }
 }

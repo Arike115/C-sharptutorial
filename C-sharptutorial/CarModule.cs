@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace C_sharptutorial
 {
-    public abstract class CarModule 
+    public class CarModule 
     {
-        public string Name { get; set; } //properties
+        public int CarId { get; set; }
+        public string Name { get; set; } 
+        public double Price { get; set; }
+        public int Model { get; set; }
+
       
     }
 }
