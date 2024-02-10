@@ -15,7 +15,7 @@ internal class Program
        list.Add("rubber");
 
         List<string> collection = new List<string>() { "chalk", "board", "cup", "mug" };
-        collection.RemoveAt("rubber");
+       
 
         foreach (string s in list)
         {
