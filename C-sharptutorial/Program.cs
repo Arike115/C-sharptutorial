@@ -8,57 +8,104 @@ using System.Runtime.CompilerServices;
 
 internal class Program
 {
-    //linq (language integrated query)
-    //linq 
-    //filtering e.g where
-    //Projection e.g select, select many
-    //ordering e.g orderby, orderbydescending
-    //grouping e.g
+   //set operators
+   //element operators
+   //conversion  method
+   //aggregate operators
+   //Quantifiers
     private static void Main(string[] args) //method
     {
+        int[] Numerical1 = { 1, 2, 3, 4, 5, 5, 6, 6, 7, 7 };
+        int[] Numerical2 = { 7, 7, 8, 9, 10, 11, 12, 12,89 };
+        int[] Numerical = { };
+        string[] words = { };
 
-        IList<CarModule> list = new List<CarModule>()
-        { 
-           new CarModule() {CarId = 101, Name = "suv", Model = 2002, Price=3000 },
-           new CarModule() {CarId = 102, Name = "Corolla", Model = 2023, Price=35000 },
-           new CarModule() {CarId = 103, Name = "Hundai", Model = 2022, Price=8000 },
-           new CarModule() {CarId = 104, Name = "Honda", Model = 1984, Price=10000 },
-           new CarModule() {CarId = 101, Name = "Toyota", Model = 2002, Price=3000 },
-           new CarModule() {CarId = 103, Name = "Camry", Model = 2023, Price=35000 },
-           new CarModule() {CarId = 103, Name = "Benz", Model = 2022, Price=8000 },
-           new CarModule() {CarId = 104, Name = "Bugatti", Model = 1984, Price=10000 },
 
-        };
 
-        ////method syntax
-        //var data = list.Select(x => x.Name);
-        //var result = list.Where(s => s.CarId > 101).OrderByDescending(x => x.Name).ToList();
-        ////
-        //foreach (var module in data)
+        //Quantifiers
+        var anymethod = Numerical2.Any(x => x % 2 == 0);
+        Console.WriteLine(anymethod);
+        var allmethod = Numerical2.All(x => x % 2 == 0);
+        Console.WriteLine(allmethod);
+        var Containmethod = Numerical2.Contains(7);
+        Console.WriteLine(Containmethod);
+
+
+
+        //aggregate operators
+        //var result = Numerical1.ToList();
+        // var counteven = result.Count(x => x % 2 == 0);
+        // Console.WriteLine(counteven);
+        // var sumvalue = result.Sum();
+        // Console.WriteLine(sumvalue);
+        // var maxvalue = result.Max();
+        // Console.WriteLine(maxvalue);
+        // var minvalue = result.Min();
+        // Console.WriteLine(minvalue);
+        // var averagevalue = result.Average();
+        // Console.WriteLine(averagevalue);
+
+        //ElementOperators
+        //var firstnumber = Numerical.FirstOrDefault();
+        //var secondnumber = Numerical1.First();
+        //Console.WriteLine(secondnumber);
+        //Console.WriteLine(firstnumber);
+
+        //var lastdefaultnumber = words.LastOrDefault();
+        //var lastnumber = Numerical2.Last();
+        //Console.WriteLine(lastdefaultnumber);
+        //Console.WriteLine(lastnumber);
+
+        //var elementdefaultnumber = Numerical1.ElementAtOrDefault(15);
+        //var elementnumber = Numerical2.ElementAt(7);
+        //Console.WriteLine(elementdefaultnumber);
+        //Console.WriteLine(elementnumber);
+
+
+
+        //SetOperators
+
+        //var distinctmethod = Numerical1.Distinct();
+
+        //foreach (int i in distinctmethod)
         //{
-        //    Console.WriteLine(module);
+        //    Console.WriteLine(i);
         //}
 
-        //Console.WriteLine("........");
-        //foreach (var module in result)
+
+        //var unionmethod = Numerical1.Union(Numerical2).ToList();
+
+        //foreach (int v in unionmethod)
         //{
-        //    Console.WriteLine(module.Name);
+        //    Console.WriteLine("union :" + string.Join(",", v));
         //}
 
-        //Group By
-        //Method Syntax
-        var groupby =list.GroupBy(x => x.CarId);
+        //var intersectmethod = Numerical1.Intersect(Numerical2).ToArray();
 
-        //Query syntax
-        var groupQuery = (from std in list group std by std.CarId);
+        //foreach (int v in intersectmethod)
+        //{
+        //    Console.WriteLine("intersect :" + string.Join(",", v));
+        //}
 
-        foreach(var group in groupby)
-        {
-            Console.WriteLine(group.Key + ":" + group.Count());
-            foreach(var datas in group)
-            {
-                Console.WriteLine(datas.Name);
-            }
-        }
+        //var exceptmethod = Numerical1.Except(Numerical2);
+
+        //foreach (int v in exceptmethod)
+        //{
+        //    Console.WriteLine("Except :" + string.Join(",", v));
+
+        //}
+
+        //var Concatmethod = Numerical1.Concat(Numerical2);
+
+        //foreach (int v in Concatmethod)
+        //{
+        //    Console.WriteLine("Concat :" + string.Join(",", v));
+        //}
+
+
+
+
+
+
     }
 }
