@@ -1,110 +1,115 @@
-﻿//mainMethod
-using C_sharptutorial;
+﻿using C_sharptutorial;
 using Microsoft.VisualBasic;
 using System.Globalization;
+using System.Linq;
 using System.Net.Security;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 
 internal class Program
 {
-   //set operators
-   //element operators
-   //conversion  method
-   //aggregate operators
-   //Quantifiers
     private static void Main(string[] args) //method
     {
-        int[] Numerical1 = { 1, 2, 3, 4, 5, 5, 6, 6, 7, 7 };
-        int[] Numerical2 = { 7, 7, 8, 9, 10, 11, 12, 12,89 };
-        int[] Numerical = { };
-        string[] words = { };
+        var customers = new List<Customer>
+        { 
+            new Customer { Id = 101, CustomerName = "Pedro", PhoneNumber="09037887890"},
+            new Customer { Id = 102, CustomerName = "Alice", PhoneNumber="09037887111"},
+            new Customer { Id = 103, CustomerName = "Roberto", PhoneNumber="08022887890"}
+        };
+
+        var Orders = new List<Order>
+        {
+            new Order {CustomerId = 101, OrderId = 1, ProductName = "Bag of Rice", Productprice = 80000},
+            new Order {CustomerId = 102, OrderId = 2, ProductName = "Bag of Bean", Productprice = 60000},
+            new Order {CustomerId = 102, OrderId = 3, ProductName = "Bag of Flour", Productprice = 76000},
+            new Order {CustomerId = 102, OrderId = 4, ProductName = "Bag of Spagetti", Productprice = 18000},
+            new Order {OrderId = 5, ProductName = "Bag of Semo", Productprice = 12000}
+        };
+
+        //inner Join  or Join
+        //Method Syntax
+
+        var joinlist = customers.Join(Orders,
+                        x => x.Id, s => s.CustomerId,
+                        (x, s) => new 
+                        { 
+                            CustomerName = x.CustomerName,
+                            ItemName = s.ProductName,
+                            Amount = s.Productprice
+                        }).ToList();
+
+        //Query Syntax
+        var Queryjoinlist = (from c in customers
+                            join o in Orders
+                            on c.Id equals o.CustomerId
+                            select new 
+                            {
+                                CustomerName = c.CustomerName,
+                                ItemName = o.ProductName,
+                                Amount = o.Productprice
+                            }).ToList();
 
 
 
-        //Quantifiers
-        var anymethod = Numerical2.Any(x => x % 2 == 0);
-        Console.WriteLine(anymethod);
-        var allmethod = Numerical2.All(x => x % 2 == 0);
-        Console.WriteLine(allmethod);
-        var Containmethod = Numerical2.Contains(7);
-        Console.WriteLine(Containmethod);
+        //LeftJoin 
+        //Query syntax 
+        var queryleftjoin = from c in customers // left 
+                            join o in Orders //right
+                            on c.Id equals o.CustomerId
+                            into datagroup
+                            from groupinfo in datagroup.DefaultIfEmpty()
+                            select new
+                            {
+                                CustomerName = c.CustomerName,
+                                ItemName = groupinfo?.ProductName,
+                                Amount = groupinfo?.Productprice
+                            };
+
+        //Method syntax 
+        var methleftjoin = customers.GroupJoin(Orders,
+                        x => x.Id, s => s.CustomerId,
+                        (x, s) => new {x,s}
+                        ).SelectMany
+                        (
+                        x => x.s.DefaultIfEmpty(),
+                        (cust, ord) => new 
+                        {
+                            CustomerName = cust.x.CustomerName,
+                            ItemName = ord == null ? "N/A" : ord.ProductName,
+                            Amount = ord == null ? 0: ord.Productprice,
+                        }).ToList();
 
 
+        //RightJoin
+        //querysyntax 
 
-        //aggregate operators
-        //var result = Numerical1.ToList();
-        // var counteven = result.Count(x => x % 2 == 0);
-        // Console.WriteLine(counteven);
-        // var sumvalue = result.Sum();
-        // Console.WriteLine(sumvalue);
-        // var maxvalue = result.Max();
-        // Console.WriteLine(maxvalue);
-        // var minvalue = result.Min();
-        // Console.WriteLine(minvalue);
-        // var averagevalue = result.Average();
-        // Console.WriteLine(averagevalue);
+        var queryrightjoin = from c in Orders // left 
+                             join o in customers //right
+                             on c.CustomerId equals o.Id
+                             into datagroup
+                             from groupinfo in datagroup.DefaultIfEmpty()
+                             select new
+                             {
+                                 CustomerName = c.ProductName,
+                                 ItemName = groupinfo?.CustomerName,
+                                 Amount = c.Productprice
+                             };
 
-        //ElementOperators
-        //var firstnumber = Numerical.FirstOrDefault();
-        //var secondnumber = Numerical1.First();
-        //Console.WriteLine(secondnumber);
-        //Console.WriteLine(firstnumber);
-
-        //var lastdefaultnumber = words.LastOrDefault();
-        //var lastnumber = Numerical2.Last();
-        //Console.WriteLine(lastdefaultnumber);
-        //Console.WriteLine(lastnumber);
-
-        //var elementdefaultnumber = Numerical1.ElementAtOrDefault(15);
-        //var elementnumber = Numerical2.ElementAt(7);
-        //Console.WriteLine(elementdefaultnumber);
-        //Console.WriteLine(elementnumber);
+        var fullouterjoin = customers.Join(Orders,
+                                    x => true,
+                                    s => true,
+                                    (x, s) => new
+                                    {
+                                        CustomerName = x.CustomerName,
+                                        ItemName = s.ProductName,
+                                        Amount = s.Productprice
+                                    });
 
 
-
-        //SetOperators
-
-        //var distinctmethod = Numerical1.Distinct();
-
-        //foreach (int i in distinctmethod)
-        //{
-        //    Console.WriteLine(i);
-        //}
-
-
-        //var unionmethod = Numerical1.Union(Numerical2).ToList();
-
-        //foreach (int v in unionmethod)
-        //{
-        //    Console.WriteLine("union :" + string.Join(",", v));
-        //}
-
-        //var intersectmethod = Numerical1.Intersect(Numerical2).ToArray();
-
-        //foreach (int v in intersectmethod)
-        //{
-        //    Console.WriteLine("intersect :" + string.Join(",", v));
-        //}
-
-        //var exceptmethod = Numerical1.Except(Numerical2);
-
-        //foreach (int v in exceptmethod)
-        //{
-        //    Console.WriteLine("Except :" + string.Join(",", v));
-
-        //}
-
-        //var Concatmethod = Numerical1.Concat(Numerical2);
-
-        //foreach (int v in Concatmethod)
-        //{
-        //    Console.WriteLine("Concat :" + string.Join(",", v));
-        //}
-
-
-
-
+        foreach (var data in fullouterjoin)
+        {
+            Console.WriteLine($"CustomerName: {data.CustomerName}, ItemName: {data.ItemName}, Amount: {data.Amount} ");
+        }
 
 
     }
