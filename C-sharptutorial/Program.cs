@@ -8,35 +8,45 @@ using System.Runtime.CompilerServices;
 
 internal class Program
 {
-    private static async Task Main(string[] args) //method
+    private static void Main(string[] args) //method
     {
-        Task<int> result = MyMethod();
-        MyMethod2();
+        //Directory
 
-        var data = await result;
-        DisplayData(data);
-        Console.ReadKey();
+        //string root = @"C:\Temp";
+
+        //if(Directory.Exists(root))
+        //{
+        //    Directory.Delete(root);
+        //    Console.WriteLine("data deleted");
+        //}
+
+        //file
+
+        //string file = @"C:\Document\Data.txt";
+        //var result =File.GetLastWriteTimeUtc(file);
+        //Console.WriteLine(result);
+        //var result2 = File.GetLastAccessTime(file);
+        //Console.WriteLine(result2);
+
+        //var folder = @"C:\DataInfo\";
+        //var filename = "Namelist.txt";
+        //var fullpath =  folder + filename;
+
+        //string[] userslist = { "james Ben", "Emmanuel Grace", "Tosin Lawal", "Tomike joy" };
+
+        //File.WriteAllLines(fullpath, userslist);
+        //var readtext = File.ReadAllText(fullpath);
+        //Console.WriteLine(readtext);
+
+
+        var folders = @"C:\Document";
+        var filelist = Directory.GetFiles(folders);
+        foreach (var files in filelist) 
+        Console.WriteLine(files);
+
+        Console.WriteLine(Directory.GetDirectoryRoot(folders));
 
     }
 
-    public static async Task<int> MyMethod()
-    {
-        Console.WriteLine("FirstProcess started");
-        await Task.Delay(4000);
-        Console.WriteLine("FirstProcess is completed");
-        return 10;
-    }
-
-    public static async Task<int> MyMethod2()
-    {
-        Console.WriteLine("SecondProcess started");
-        //await Task.Delay(4000);
-        Console.WriteLine("SecondProcess is completed");
-        return 20;
-    }
-
-    public static void DisplayData(int result)
-    {
-        Console.WriteLine(result);
-    }
+    
 }
